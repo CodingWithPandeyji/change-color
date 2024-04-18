@@ -1,27 +1,19 @@
-function changeColor()
-{
-    let colors = ["red","blue","green", "blue", "orange", "pink"]
-    let circleBox = document.getElementById("outer");
-    let index = Math.floor(Math.random()*(colors.length-1));
-    circleBox.style.backgroundColor = colors[index];
-}
+const cColor=document.querySelector(" .chage-color");
+const outer=document.querySelector(".outer");
+const cShape=document.querySelector(".change-shape")
+const inner=document.querySelector(".inner");
 
-function changeShape()
-{
-    let shapes = ["box","circle2"]
-    let shape = document.getElementById("inner");
-    let index = Math.floor(Math.random()*(shapes.length-1));
+cColor.addEventListener("click",()=>{
+    let random=["red","green","blue","pink","orange","purple"];
+    let select=random[Math.floor(Math.random()*random.length)];
+    outer.style.background=select;
+})
 
-    let classes = shape.classList
-    classes.forEach( (item) => {
-        if(shapes.includes(item) == true)
-        {
-            shape.classList.remove(item)
-        } 
-    })
+cShape.addEventListener("click",()=>{
+    let random=["triangle","trapezoid","rhombus","pentagon"];
+    let select=random[Math.floor(Math.random()*random.length)];
+    inner.classList.remove("triangle", "trapezoid", "rhombus", "pentagon");
+    inner.classList.add(select);
+})
 
-    shape.classList.add(shapes[index])
-}
 
-document.getElementById("color").addEventListener("click", changeColor )
-document.getElementById("shape").addEventListener("click", changeShape )
